@@ -1,16 +1,16 @@
 [
   {
     "id":"QWERT1234",
-    "currentStatus": "4",
+    "currentStatus": 4,
     "statusUpdates":[
-      {"status":"4","time":"2021-04-07T20:55:34.800Z"},
-      {"status":"3","time":"2021-04-07T20:50:34.800Z"},
-      {"status":"2","time":"2021-04-07T20:19:34.800Z"},
-      {"status":"1","time":"2021-04-07T20:09:34.800Z"}
+      {"status":4,"time":"2021-04-07T20:55:34.800Z"},
+      {"status":3,"time":"2021-04-07T20:50:34.800Z"},
+      {"status":2,"time":"2021-04-07T20:19:34.800Z"},
+      {"status":1,"time":"2021-04-07T20:09:34.800Z"}
     ],
     "restaurant":{
       "name": "Hotel Sky Siddhi Vinayak | Takeaway",
-      "location" : {"lat":"20.38931234845439", "lng" : " 78.12325466204624"},
+      "location" : {"lat":20.38931234845439, "lng" : 78.12325466204624},
       "contact": "+91 99xxx xx31"
     },
     "deliveryPerson":{
@@ -20,17 +20,17 @@
   },
   {
     "id":"QWERT1234",
-    "currentStatus": "5",
+    "currentStatus": 5,
     "statusUpdates":[
-      {"status":"5","time":"2021-04-07T21:01:34.800Z"},
-      {"status":"4","time":"2021-04-07T20:55:34.800Z"},
-      {"status":"3","time":"2021-04-07T20:50:34.800Z"},
-      {"status":"2","time":"2021-04-07T20:19:34.800Z"},
-      {"status":"1","time":"2021-04-07T20:09:34.800Z"}
+      {"status":5,"time":"2021-04-07T21:01:34.800Z"},
+      {"status":4,"time":"2021-04-07T20:55:34.800Z"},
+      {"status":3,"time":"2021-04-07T20:50:34.800Z"},
+      {"status":2,"time":"2021-04-07T20:19:34.800Z"},
+      {"status":1,"time":"2021-04-07T20:09:34.800Z"}
     ],
     "restaurant":{
       "name": "Hotel Sky Siddhi Vinayak | Takeaway",
-      "location" : {"lat":"20.38931234845439", "lng" : " 78.12325466204624"},
+      "location" : {"lat":20.38931234845439, "lng" : 78.12325466204624},
       "contact": "+91 99xxx xx31"
     },
     "deliveryPerson":{
