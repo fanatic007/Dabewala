@@ -19,7 +19,7 @@ wss.on('connection', (ws) => {
   console.log("connection opened");
   let i=0;
   LOCATION_UPDATES.forEach(coords=>{
-    setTimeout(()=>{ ws.send(JSON.stringify({status: 4, coords:coords}));    }, 1000*i++);  
+    setTimeout(()=>{ ws.send(JSON.stringify({status: 4, coords:coords}));    }, 2000*i++);  
   });
 });
 

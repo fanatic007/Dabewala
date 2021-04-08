@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
-import { catchError, tap, switchAll } from 'rxjs/operators';
+import { catchError, tap, switchAll, map } from 'rxjs/operators';
 import { EMPTY, Observable, Subject } from 'rxjs';
 import { HttpClient } from "@angular/common/http";
 import { Order, LocationUpdate } from "./models";
@@ -12,8 +12,6 @@ export const HTTP_ENDPOINT = `http://localhost:3001`;
 })
 export class OrderService {
   private socket$: WebSocketSubject<any>;
-  // private locationUpdateSubject$ = new Subject();
-  // public locationUpdate$ = this.locationUpdateSubject$.pipe(switchAll(), catchError(e => { throw e }));
   public locationUpdate$;
 
   constructor(private httpClient: HttpClient ){ }
@@ -29,7 +27,8 @@ export class OrderService {
         tap({
           error: error => console.log(error),
         }),
-        catchError(_ => EMPTY)
+        catchError(_ => EMPTY),
+        map(locationUpdate=>locationUpdate)
       );
     }
   }
