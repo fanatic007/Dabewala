@@ -86,8 +86,6 @@ export class AppComponent {
 
   drawDirectionsRoute() {  
     if (!this.directionsRenderer) {
-      // if you already have a marker at the coordinate location on the map, use suppressMarkers option
-      // suppressMarkers prevents google maps from automatically adding a marker for you
       this.directionsRenderer = new google.maps.DirectionsRenderer({suppressMarkers: true});
     }
     const directionsRenderer = this.directionsRenderer;
