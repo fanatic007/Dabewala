@@ -6,18 +6,17 @@ import { HttpClient } from "@angular/common/http";
 import { Order, LocationUpdate } from "./models";
 export const WS_ENDPOINT = `ws://localhost:3002`;
 export const HTTP_ENDPOINT = `http://localhost:3001`;
-
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
   private socket$: WebSocketSubject<any>;
-  public locationUpdate$;
+  public locationUpdate$: Observable<LocationUpdate>;
 
   constructor(private httpClient: HttpClient ){ }
 
   getOrderDetails(id,statusUpdated): Observable<Order>{
-    return this.httpClient.get<Order>(HTTP_ENDPOINT + '/orders', { params: {id:id,statusUpdated:statusUpdated} } );
+    return this.httpClient.get<Order>(HTTP_ENDPOINT + '/orders/');
   }
   
   connect(): void {    

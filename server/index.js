@@ -1,17 +1,18 @@
-const express = require('express')
-const WebSocket = require('ws')
+const cors = require('cors');
+const express = require('express');
+const WebSocket = require('ws');
 const LOCATION_UPDATES = require('./locationUpdates.json');
 let ORDERS = require('./orders.json');
 const http = require('http');
-
 const PORT_HTTP = 3001;
 const PORT_WS = 3002;
 const app = express();
 const wss = new WebSocket.Server( {server:http.createServer(app), port:PORT_WS} );
 
+app.use(cors({origin:'*'}));
 
 app.get('/orders/', (req, res) => {
-  req.params.locationUpdated?res.send(ORDERS[0]):res.send(ORDERS[1]);
+  req.params.locationUpdated?res.send( JSON.stringify(ORDERS[0] )):res.send(JSON.stringify(ORDERS[1]));
 });
 
 

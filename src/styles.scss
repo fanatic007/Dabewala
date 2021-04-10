@@ -1,1 +1,90 @@
-/* You can add global styles to this file, and also import other style files */
+$accent-color: orangered;
+$primary-color: #ededed;
+
+html{
+  font-family: monospace;
+  max-width: 1280px;
+  margin: auto;
+  font-size: 16px;
+  background: $primary-color;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Courier New', Courier, monospace;
+  color: $accent-color;
+  text-transform: uppercase;
+}
+
+.card{
+  min-width: 275px;
+  min-height: 275px;
+  padding: 40px;
+  margin: 10px;
+  border-radius: 26px;
+  position: relative;
+  background: $primary-color;
+
+  &__outset{
+  box-shadow:  8px 8px 12px #c0c0c0,
+               -8px -8px 12px #ffffff;
+  }
+  &__inset{
+    box-shadow: inset 8px 8px 12px #c0c0c0,
+            inset -8px -8px 12px #ffffff;
+  }
+}
+
+.text{
+  margin: 0px 1px;
+  &__label{
+    color: grey;
+    text-transform: uppercase;
+  }    
+
+  &__value{
+    float: right;
+  }
+}
+
+
+.flex{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  &__child{
+    flex: 1 1 auto;
+  }
+}
+
+.button{
+  -webkit-appearance: none;
+  border: none;
+  cursor: pointer;
+
+  &__round{
+    height: 55px;
+    width: 55px;
+    border-radius: 40px;
+  }
+
+  box-shadow:  6px 6px 12px #c0c0c0,
+                -6px -6px 12px #ffffff;               
+}
+
+.button:active{
+  box-shadow: inset 6px 6px 12px #c0c0c0,
+              inset -6px -6px 12px #ffffff; 
+}
+
+.absolute{
+  position: absolute;
+  &__bottom{
+    bottom: 20px;
+  }
+
+  &__right{
+    right: 20px;
+  }
+
+}

@@ -1,0 +1,46 @@
+<h1>Order Details</h1>
+<div class="flex">
+  <div class="card card__outset flex__child">
+    <h3>Order Details</h3>
+    <div> <span class="text text__label">ID:</span> <span class="text text__value">{{order?.id}}</span> </div>
+    <div> <span class="text text__label">Restaurant:</span> <span class="text text__value">{{order?.restaurant.name}}</span> </div>
+    <div> <span class="text text__label">Delivery Person:</span> <span class="text text__value">{{order?.deliveryPerson.name}}</span> </div>
+    <br>
+    <div *ngFor="let statusUpdate of order?.statusUpdates.slice().reverse()">
+      <div><span class="text text__label">{{statusUpdate.status | orderStatus}}</span><span class="text text__value">{{statusUpdate.time | date:'medium'}}</span></div>      
+    </div>
+    <br>
+    <button class="button button__round button__outset absolute absolute__bottom" title="Call Delivery Restaurant"><img src="/assets/icons/phone-call.png" ></button>
+    <button class="button button__round button__outset absolute absolute__bottom absolute__right" title="Cancel Order"><img src="/assets/icons/close.png" ></button>
+  </div>
+  <div class="card card__outset flex__child">
+    <h3>Food Details</h3>
+    <div *ngFor="let foodItem of order?.foodItemsDetails">
+      <span>{{foodItem.name}} x {{foodItem.quantity}} </span>
+      <span class="text text__value">&#8377; {{foodItem.price | number}} </span>
+    </div>
+    <br>
+    <div>
+      <div><span class="text text__label">Item Total :</span>  <span class="text text__value">&#8377;{{order?.pricingDetails.itemTotal}}</span></div>
+      <div><span class="text text__label">Taxes & Charges :</span>  <span class="text text__value">&#8377; {{order?.pricingDetails.taxesAndCharges}}</span></div>
+      <div><span class="text text__label">Promo Discount :</span>  <span class="text text__value">&#8377; {{order?.pricingDetails.promoDiscount}}</span></div>
+      <div><b><span class="text text__label">Grand Total :</span>  <span class="text text__value">&#8377; {{order?.pricingDetails.grandTotal}}</span></b></div>
+    </div>
+    <br>
+    <button class="button button__round button__outset absolute absolute__bottom absolute__right" title="Add order to favourites"><img src="/assets/icons/heart.png" ></button>
+  </div>
+</div>
+<br>
+<div class="card card__outset">
+  <h3>Live Tracking</h3>
+  <geo-tracker *ngIf="order" 
+    [sourceCoords]="order?.restaurant.coords"
+    [destinationCoords]="order?.customer.coords"
+    [trackeeCoords]="deliveryPersonCoords"
+    [trackeeIcon]="deliveryPersonIcon"
+    [sourceIcon]="restaurantIcon"
+    [destinationIcon]="houseIcon"
+    [showCurrentPosition]="false"
+    >
+  </geo-tracker>
+</div>

@@ -1,11 +1,13 @@
 export interface StatusUpdate {
   status: number, time: string
 }
+
 export interface Party {
   name: string, contact: string
 }
+
 export interface Restaurant extends Party {
-  location: google.maps.LatLngLiteral
+  coords: google.maps.LatLngLiteral
 }
 
 export interface LocationUpdate {
@@ -18,4 +20,8 @@ export interface Order {
   currentStatus: 4
   statusUpdates:Array<StatusUpdate>,
   restaurant:Restaurant
+  orderDetails:Object,
+  pricingDetails:Object,
+  foodItemsDetails:Object,
+  deliveryPerson:Object  
 }
